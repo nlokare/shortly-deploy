@@ -103,30 +103,19 @@ module.exports = function(grunt) {
   // Main grunt tasks
   ////////////////////////////////////////////////////
 
-  grunt.registerTask('test', [
-    'mochaTest'
-  ]);
+  grunt.registerTask('test', ['mochaTest']);
 
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'jshint', 'test']
-  );
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin', 'jshint', 'test']);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
-      // var upload = grunt.util.spawn({
-      //   cmd: 'git push',
-      //   args: 'azure master'
-      // });
-      // upload.stdout.pipe(process.stdout);
-      // upload.stderr.pipe(process.stderr);
       grunt.task.run([ 'shell' ]);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
   });
 
-  grunt.registerTask('deploy',['build']
-    // add your deploy tasks here
-  );
+  grunt.registerTask('deploy',['build']);
 
   grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'jshint']);
 
