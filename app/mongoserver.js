@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var url = process.env.MONGOLAB || 'mongodb://localhost/users';
 mongoose.connect('mongodb://localhost/users');
 
 
