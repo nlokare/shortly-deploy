@@ -72,6 +72,7 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+        command: 'git push azure master'
       }
     },
   });
@@ -111,11 +112,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
-      var upload = grunt.util.spawn({
-        cmd: 'git push azure master'
-      });
-      upload.stdout.pipe(process.stdout);
-      upload.stderr.pipe(process.stderr);
+      // var upload = grunt.util.spawn({
+      //   cmd: 'git push',
+      //   args: 'azure master'
+      // });
+      // upload.stdout.pipe(process.stdout);
+      // upload.stderr.pipe(process.stderr);
+      grunt.task.run([ 'shell' ]);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
