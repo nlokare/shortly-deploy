@@ -1,6 +1,7 @@
 var db = require('../mongoserver');
 var mongoose = require('mongoose');
 var crypto = require('crypto');
+var Promise = require('bluebird');
 
 var Schema = mongoose.Schema;
 
@@ -12,22 +13,16 @@ var LinkSchema = new Schema({
   visits: Number
 });
 
+var Link = mongoose.model('Link', LinkSchema);
 
-// var Link = db.Model.extend({
-//   tableName: 'urls',
-//   hasTimestamps: true,
-//   defaults: {
-//     visits: 0
-//   },
-  initialize: function(){
-    this.on('creating', function(model, attrs, options){
-      var shasum = crypto.createHash('sha1');
-      shasum.update(model.get('url'));
-      model.set('code', shasum.digest('hex').slice(0, 5));
-    });
-  }
-});
+Link.createCode = function(url){
+  return new Promise(function(resolve, reject) {
+    var shasum = crypto.createHash('sha1');
+    shasum.update(url);
+    var code = shasum.digest('hex').slice(0, 5);
+    resolve(code);
+  });
+};
 
-var Link = mongoose.model('Link', UserSchema);
 
 module.exports = Link;

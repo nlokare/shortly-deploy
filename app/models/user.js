@@ -5,14 +5,6 @@ var Promise = require('bluebird');
 
 var Schema = mongoose.Schema;
 
-// var UrlSchema = new Schema({
-//   url: String,
-//   baseUrl: String,
-//   code: String,
-//   title: String,
-//   visits: Number
-// });
-
 var UserSchema = new Schema({
   username: String,
   password: String
