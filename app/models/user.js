@@ -27,7 +27,7 @@ User.hashPassword = function (password) {
 
 User.comparePassword = function(user, attemptedPassword) {
   return new Promise(function(resolve, reject){
-    bcrypt.compare(attemptedPassword, user[0]['password'], function(err, isMatch) {
+    bcrypt.compare(attemptedPassword, user[0].password, function(err, isMatch) {
       if (err) {
         reject(err);
       } else {

@@ -1,5 +1,5 @@
-Wed Jan 14 2015 14:51:14 GMT-0800 (PST):
-{ [Error: Error: Website with given name hrshortly already exists.]
+Thu Jan 15 2015 16:33:43 GMT-0800 (PST):
+{ [Error: Error: Website with given name ntshortly already exists.]
   stack: [Getter/Setter],
   __frame: 
    { name: 'createSite',
@@ -17,7 +17,7 @@ Wed Jan 14 2015 14:51:14 GMT-0800 (PST):
      offset: 21,
      col: 21 },
   rawStack: [Getter] }
-Error: Error: Website with given name hrshortly already exists.
+Error: Error: Website with given name ntshortly already exists.
     at createSite__4 (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/commands/asm/websites/websitesclient._js:312:34)
     at createSite (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/commands/asm/site._js:400:21)
     at __4 (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/commands/asm/site._js:246:12)
